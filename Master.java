@@ -24,4 +24,16 @@ public class Master implements Observer{
         //             name, nameCompany, salary);
         // }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public String getProf() {
+        return prof;
+    }
 }

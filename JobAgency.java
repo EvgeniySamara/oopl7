@@ -8,14 +8,35 @@ public class JobAgency implements Publisher {
     private Collection<Observer> observers = new ArrayList<>();
     private Collection<Vacancy>  vacancies = new ArrayList<>();
     
+    public Collection<Vacancy> getVacancies() {
+        return vacancies;
+    }
+
+
+
     public void addVacancy(Vacancy vacancy) {
         this.vacancies.add(vacancy);
     }
 
-    public void sendOffer(String companyName, int salary){
-        for (Observer observer : observers){
+    public void listVacancies ()
+    {
+     
+        for (Vacancy vacancy : vacancies) {
+            System.out.println(vacancy);
+        }
+    }
 
-            observer.receiveOffer(vacancies);
+    
+    public void sendOffer(String companyName, int salary){
+        
+        for (Vacancy vacancy : vacancies) {
+            
+        
+        for (Observer observer : observers){
+            
+            observer.getProf().equals(vacancy.getProf());
+            observer.receiveOffer(vacancy);
+        }
         }
     }
 

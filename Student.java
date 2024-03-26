@@ -12,6 +12,10 @@ public class Student implements Observer{
         salary = 5000;
     }
 
+
+
+
+    
     @Override
     public void receiveOffer(Vacancy vacancy) {
         // if (this.salary <= salary){
@@ -23,5 +27,29 @@ public class Student implements Observer{
         //     System.out.printf("Студент %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
         //             name, nameCompany, salary);
         // }
+    }
+
+
+
+
+
+    public String getName() {
+        return name;
+    }
+
+
+
+
+
+    public int getSalary() {
+        return salary;
+    }
+
+
+
+
+
+    public String getProf() {
+        return prof;
     }
 }

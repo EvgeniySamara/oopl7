@@ -1,19 +1,32 @@
 public class Vacancy {
+    private static int cnt;
     private int id;
-    private String prof;
-    private String txt;
-    private int salary;
     private String companyName;
+    private String prof;
+    private int salary;    
+    private String txt;
+
+    
     
 
-    public Vacancy(int id, String prof, String txt, int salary, String companyName) {
-        this.id = id;
+    public Vacancy(String companyName, String prof,  int salary, String txt) {
+        
+        cnt++;
+    
+        this.id = cnt;
         this.prof = prof;
         this.txt = txt;
         this.salary = salary;
         this.companyName = companyName;
     }
 
+ 
+        public Vacancy(String companyName, String prof,  int salary) {
+        
+        
+        this(companyName, prof,  salary,"Нет описания вакансии");
+    
+    }   
 
     public int getId() {
         return id;
@@ -62,6 +75,13 @@ public class Vacancy {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Vacancy [id=" + id + ", companyName=" + companyName + ", prof=" + prof + ", salary=" + salary + ", txt="
+                + txt + "]";
     }
 
     
