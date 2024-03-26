@@ -1,4 +1,4 @@
-package ru.geekbrains.oop.lesson7.observer;
+
 
 import java.util.ArrayList;
 import java.util.Collection;

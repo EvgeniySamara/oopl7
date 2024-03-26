@@ -1,4 +1,4 @@
-package ru.geekbrains.oop.lesson7.observer;
+
 
 public class Master implements Observer{
 
