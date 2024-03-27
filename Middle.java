@@ -12,8 +12,13 @@ public class Middle implements Observer{
     }
 
     @Override
+    public String toString() {
+        return "Middle [name=" + name + ", salary=" + salary + ", prof=" + prof + "]";
+    }
+
+    @Override
     public void receiveOffer(Vacancy vacancy, Publisher publisher) {
-        publisher.removeObserver(this);
+        
     
         if (this.salary <=  vacancy.getSalary()){
             System.out.printf("Мидл %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",

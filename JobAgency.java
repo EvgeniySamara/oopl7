@@ -2,10 +2,12 @@
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class JobAgency implements Publisher {
 
-    private Collection<Observer> observers = new ArrayList<>();
+    private ArrayList<Observer> observers = new ArrayList<>();
     private Collection<Vacancy>  vacancies = new ArrayList<>();
     
     public Collection<Vacancy> getVacancies() {
@@ -20,24 +22,31 @@ public class JobAgency implements Publisher {
 
     public void listVacancies ()
     {
-     
+        System.out.println("Cписок вакансий");
         for (Vacancy vacancy : vacancies) {
             System.out.println(vacancy);
         }
+        System.out.println();
     }
 
     
     public void sendOffer(String companyName){
         
+
+        ArrayList<Observer> observersiter =  new ArrayList<>();
+        //Collections.copy(observersiter, observers);
+        observersiter.addAll(observers);
         for (Vacancy vacancy : vacancies) {
-            
         
-        for (Observer observer : observers){
+             if (companyName.equals(vacancy.getCompanyName()))
+             {
+                     for (Observer observer : observersiter){
             
-            if (observer.getProf().equals(vacancy.getProf())) {
-            observer.receiveOffer(vacancy, this);
-            }
-        }
+                              if (observer.getProf().equals(vacancy.getProf())) {
+                                  observer.receiveOffer(vacancy, this);
+                             }
+                     }
+              }
         }
     }
 
@@ -51,6 +60,18 @@ public class JobAgency implements Publisher {
     @Override
     public void removeObserver(Observer observer) {
         observers.remove(observer);
+    }
+
+
+
+    @Override
+    public void listObserver() {
+        System.out.println("Cписок наблюдателей");
+        for (Observer observer : observers) {
+            System.out.println(observer);
+        }
+        System.out.println();
+
     }
 
 }
