@@ -12,16 +12,19 @@ public class Middle implements Observer{
     }
 
     @Override
-    public void receiveOffer(Vacancy vacancy) {
-        // if (this.salary <= salary){
-        //     System.out.printf("Мидл %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
-        //             name, nameCompany, salary);
-        //     this.salary = salary;
-        // }
-        // else {
-        //     System.out.printf("Мидл %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
-        //             name, nameCompany, salary);
-        // }
+    public void receiveOffer(Vacancy vacancy, Publisher publisher) {
+        publisher.removeObserver(this);
+    
+        if (this.salary <=  vacancy.getSalary()){
+            System.out.printf("Мидл %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
+                    name, vacancy.getCompanyName(), vacancy.getSalary());
+            this.salary =  vacancy.getSalary();
+            publisher.removeObserver(this);
+        }
+        else {
+            System.out.printf("Мидл %s: Я найду работу получше! (компания: %s; заработная плата: %d)\n",
+                    name, vacancy.getCompanyName(), vacancy.getSalary());
+        }
     }
 
     public String getName() {

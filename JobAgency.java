@@ -27,15 +27,16 @@ public class JobAgency implements Publisher {
     }
 
     
-    public void sendOffer(String companyName, int salary){
+    public void sendOffer(String companyName){
         
         for (Vacancy vacancy : vacancies) {
             
         
         for (Observer observer : observers){
             
-            observer.getProf().equals(vacancy.getProf());
-            observer.receiveOffer(vacancy);
+            if (observer.getProf().equals(vacancy.getProf())) {
+            observer.receiveOffer(vacancy, this);
+            }
         }
         }
     }

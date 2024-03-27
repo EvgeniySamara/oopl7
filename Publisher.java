@@ -1,7 +1,7 @@
 
 public interface Publisher {
 
-    void sendOffer(String companyName, int salary);
+    void sendOffer(String companyname);
 
     void registerObserver(Observer observer);
 

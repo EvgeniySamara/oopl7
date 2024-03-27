@@ -13,7 +13,8 @@ public class Master implements Observer{
     }
 
     @Override
-    public void receiveOffer(Vacancy vacancy) {
+    public void receiveOffer(Vacancy vacancy, Publisher publisher) {
+        publisher.removeObserver(this);
         // if (this.salary <= salary){
         //     System.out.printf("Специалист %s: Мне нужна эта работа! (компания: %s; заработная плата: %d)\n",
         //             name, nameCompany, salary);

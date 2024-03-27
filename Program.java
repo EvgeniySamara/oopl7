@@ -13,6 +13,8 @@ public class Program {
      */
     public static void main(String[] args) {
         Publisher publisher = new JobAgency();
+        
+        
         JobAgency jobAgency = (JobAgency) publisher;
         
         // Company google = new Company("Google", publisher, 120000);
@@ -29,7 +31,7 @@ public class Program {
         jobAgency.addVacancy(vac1);
         jobAgency.addVacancy(vac2);
         jobAgency.listVacancies();
-
+        jobAgency.removeObserver(master2);
 
 
         publisher.registerObserver(student);
